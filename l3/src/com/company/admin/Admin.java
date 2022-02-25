@@ -1,32 +1,51 @@
 package com.company.admin;
-import com.company.Car;
+import com.company.BookShop;
+import com.company.books.Book;
+import com.company.books.Type;
+
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Scanner;
 
 public class Admin implements IAdmin
 {
     @Override
-    public void CountPrice(ArrayList<Car> cars) {
+    public void CountPrice(ArrayList<BookShop> books) {
         int sum = 0;
-        for (Car car: cars) {
-            sum+=car.getPrice();
+        for (BookShop book: books) {
+            sum+=book.getPrice();
         }
         System.out.println(sum);
     }
 
     @Override
-    public void SortByGas(ArrayList<Car> cars) {
-        Collections.sort(cars, new SortByGas());
+    public void SortByYear (ArrayList<BookShop> books) {
+        books.sort(new SortByYear());
     }
 
     @Override
-    public void SearchCar(ArrayList<Car> cars, int speed1, int speed2) {
-        for (Car car:cars)
+    public void SearchBook (ArrayList<BookShop> books, String name1) {
+        for (BookShop book:books)
         {
-            if (car.getSpeed() > speed1 && car.getSpeed() < speed2)
+            if (book.getName().equals(name1))
             {
-                    System.out.println(car);
+                System.out.println(book);
             }
         }
+    }
+
+    @Override
+    public void Sold(ArrayList<BookShop> books, String name11) {
+        books.removeIf(book -> book.getName().equals(name11));
+    }
+    @Override
+    public void AddBook(ArrayList<BookShop> books, Type type) throws Exception {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Year: ");
+        int year = in.nextInt();
+        System.out.println("Price: ");
+        int price  = in.nextInt();
+        System.out.println("Name: ");
+        String name = in.next();
+        books.add(new Book(price,name, year, type));
     }
 }
