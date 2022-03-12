@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Books>
+    <Book>
+        <price>500</price>
+        <year>2016</year>
+        <type>MAGAZINE</type>
+    </Book>
+</Books>

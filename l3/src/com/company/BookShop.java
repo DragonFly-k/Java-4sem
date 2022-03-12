@@ -1,6 +1,8 @@
 package com.company;
 
-public abstract class BookShop {
+import java.io.Serializable;
+
+public abstract class BookShop  implements Serializable {
     int price;
     String name;
     int year;
@@ -14,6 +16,7 @@ public abstract class BookShop {
         this.name = name;
         this.year = year;
     }
+    public BookShop(){}
 
     public int getPrice() {
         return price;
@@ -42,5 +45,8 @@ public abstract class BookShop {
     @Override
     public String toString() {
         return "Book {" + "price = " + price + ", name = " + name +", year = " + year + '}';
+    }
+    public void show() {
+        System.out.println("Book {" + "price = " + price + ", name = " + name +", year = " + year + '}');
     }
 }
