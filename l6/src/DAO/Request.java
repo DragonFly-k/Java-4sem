@@ -1,7 +1,6 @@
 package DAO;
 import Planet.Planet;
 import Planet.Sputnik;
-import org.apache.log4j.BasicConfigurator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
